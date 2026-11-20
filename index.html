@@ -325,7 +325,7 @@
                 </div>
             </div>
 
-            <!-- Bar Navigasi Menu Utama (Tepat di bawah tulisan Tirta Nusantara) -->
+            <!-- Bar Navigasi Menu Utama (Tepat di bawah tulisan Massa Utama) -->
             <div class="pb-2.5 pt-0.5">
                 <nav aria-label="Menu Utama" class="inline-flex max-w-full items-center gap-1 overflow-x-auto no-scrollbar bg-slate-100/90 dark:bg-[#1e1f20] p-1 rounded-full border border-slate-200/70 dark:border-[#333537]">
                     <button type="button" onclick="switchTab('best-time')" data-tab="best-time" class="tab-btn whitespace-nowrap px-3.5 lg:px-4 py-1.5 rounded-full text-xs font-semibold transition-all">Best Time</button>
@@ -852,7 +852,7 @@
     <footer class="safe-footer border-t border-slate-200/80 dark:border-[#333537] bg-white/70 dark:bg-[#131314]/80 py-5 mt-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-500 dark:text-[#9aa0a6]">
             <div>
-                <span id="footerWebsiteName" class="font-bold text-slate-700 dark:text-[#e3e3e3]">AquaTrack</span> — <span id="footerClubName">Tirta Nusantara Swimming Club</span>
+                <span id="footerWebsiteName" class="font-bold text-slate-700 dark:text-[#e3e3e3]">AquaTrack</span> — <span id="footerClubName">Massa Utama Swimming Club</span>
             </div>
             <div>Kompatibel dengan Android, iPhone, iPad/Tablet, Laptop & Komputer</div>
         </div>
@@ -1835,7 +1835,7 @@
 
         const DEFAULT_SITE_SETTINGS = {
             websiteName: 'AquaTrack',
-            clubName: 'Tirta Nusantara Swimming Club',
+            clubName: 'Massa Utama Swimming Club',
             logoDataUrl: '',
             clubIdPrefix: 'TN-2026-',
             clubIdNextSeq: 7,
@@ -1974,7 +1974,7 @@
             },
             {
                 id: 'comp_2',
-                title: 'Time Trial & Evaluasi Akhir Tahun Tirta Nusantara',
+                title: 'Time Trial & Evaluasi Akhir Tahun Massa Utama',
                 level: 'Internal Klub',
                 status: 'Akan Datang',
                 date: '2026-12-20',
@@ -2259,7 +2259,7 @@
 
         function applySiteSettingsToUI() {
             const wName = siteSettings.websiteName || 'AquaTrack';
-            const cName = siteSettings.clubName || 'Tirta Nusantara Swimming Club';
+            const cName = siteSettings.clubName || 'Massa Utama Swimming Club';
             document.getElementById('docTitle').textContent = `${wName} — ${cName}`;
             document.getElementById('headerWebsiteName').textContent = wName;
             document.getElementById('headerClubName').textContent = cName;
@@ -2899,7 +2899,7 @@
         function handleSaveSiteSettings(event) {
             event.preventDefault();
             siteSettings.websiteName = document.getElementById('settingWebsiteName').value.trim() || 'AquaTrack';
-            siteSettings.clubName = document.getElementById('settingClubName').value.trim() || 'Tirta Nusantara Swimming Club';
+            siteSettings.clubName = document.getElementById('settingClubName').value.trim() || 'Massa Utama Swimming Club';
             siteSettings.clubIdPrefix = document.getElementById('settingClubIdPrefix').value.trim() || 'TN-2026-';
             siteSettings.clubIdNextSeq = Math.max(1, parseInt(document.getElementById('settingClubIdNextSeq').value, 10) || 1);
             siteSettings.logoDataUrl = pendingSiteLogoDataUrl;
