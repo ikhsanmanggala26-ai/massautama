@@ -9,7 +9,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="theme-color" content="#f8fafd" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#131314" media="(prefers-color-scheme: dark)">
-    <title id="docTitle">AquaTrack — Sistem Record Best Time Klub Renang</title>
+    <title id="docTitle">Massa Utama Swimming Sport</title>
     <link id="dynamicFavicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%232563eb'/%3E%3Cstop offset='100%25' stop-color='%234f46e5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='18' fill='url(%23g)'/%3E%3Cpath d='M12 38c6-5 12-5 18 0s12 5 18 0 6-3 6-3M12 48c6-5 12-5 18 0s12 5 18 0 6-3 6-3' stroke='white' stroke-width='4.5' stroke-linecap='round' fill='none'/%3E%3Ccircle cx='38' cy='20' r='5' fill='white'/%3E%3C/svg%3E">
 
     <!-- Google Fonts: Inter & JetBrains Mono -->
@@ -261,7 +261,7 @@
                     </div>
                     <div class="min-w-0">
                         <div class="flex items-center gap-1.5">
-                            <h1 id="headerWebsiteName" class="text-base sm:text-lg font-extrabold tracking-tight bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-600 dark:from-blue-400 dark:via-indigo-400 dark:to-cyan-400 bg-clip-text text-transparent truncate">AquaTrack</h1>
+                            <h1 id="headerWebsiteName" class="text-base sm:text-lg font-extrabold tracking-tight bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-600 dark:from-blue-400 dark:via-indigo-400 dark:to-cyan-400 bg-clip-text text-transparent truncate">Massa Utama</h1>
                             <span class="hidden sm:inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-blue-50 text-blue-700 dark:bg-blue-950/70 dark:text-blue-300 border border-blue-200/70 dark:border-blue-800/60">OFFICIAL</span>
                         </div>
                         <p id="headerClubName" class="text-[11px] sm:text-xs text-slate-500 dark:text-[#c4c7c5] truncate">Massa Utama Swimming Sport</p>
@@ -280,6 +280,15 @@
                     <button type="button" id="adminManageStaffBtn" onclick="openStaffModal()" title="Kelola Akun Admin & Operator" class="hidden items-center gap-1.5 px-2.5 py-1.5 rounded-full text-xs font-semibold bg-slate-100 hover:bg-slate-200/80 dark:bg-[#282a2c] dark:hover:bg-[#333537] text-slate-700 dark:text-[#e3e3e3] border border-slate-200/80 dark:border-[#3c4043] transition">
                         <svg class="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                         <span class="hidden md:inline">Staff</span>
+                    </button>
+
+                    <!-- Toggle Aktifkan Form Input Mode Pengunjung (Admin & Pelatih/Operator) -->
+                    <button type="button" id="staffPublicInputToggleBtn" onclick="togglePublicInputMode()" title="Aktifkan atau matikan akses form input untuk pengunjung publik" class="hidden items-center gap-1.5 px-2.5 py-1.5 rounded-full text-xs font-semibold bg-slate-100 hover:bg-slate-200/80 dark:bg-[#282a2c] dark:hover:bg-[#333537] text-slate-700 dark:text-[#e3e3e3] border border-slate-200/80 dark:border-[#3c4043] transition">
+                        <span id="publicInputToggleSwitch" class="relative inline-flex h-4 w-7 shrink-0 items-center rounded-full bg-slate-300 dark:bg-slate-600 transition-colors">
+                            <span id="publicInputToggleKnob" class="inline-block h-3 w-3 translate-x-0.5 rounded-full bg-white shadow transition-transform"></span>
+                        </span>
+                        <span class="hidden lg:inline">Input Pengunjung:</span>
+                        <span id="publicInputToggleStatusText" class="text-[10px] font-extrabold text-slate-500 dark:text-[#9aa0a6]">OFF</span>
                     </button>
 
                     <!-- Tombol Impor & Ekspor Google Drive (Admin & Operator) -->
@@ -322,7 +331,7 @@
                 </div>
             </div>
 
-            <!-- Bar Navigasi Menu Utama (Tepat di bawah tulisan Massa Utama) -->
+            <!-- Bar Navigasi Menu Utama -->
             <div class="pb-2.5 pt-0.5">
                 <nav aria-label="Menu Utama" class="inline-flex max-w-full items-center gap-1 overflow-x-auto no-scrollbar bg-slate-100/90 dark:bg-[#1e1f20] p-1 rounded-full border border-slate-200/70 dark:border-[#333537]">
                     <button type="button" onclick="switchTab('best-time')" data-tab="best-time" class="tab-btn whitespace-nowrap px-3.5 lg:px-4 py-1.5 rounded-full text-xs font-semibold transition-all">Best Time</button>
@@ -339,7 +348,7 @@
     <!-- KONTEN UTAMA -->
     <main class="flex-1 max-w-7xl w-full mx-auto px-3.5 sm:px-6 lg:px-8 py-5 sm:py-7 space-y-6">
 
-        <!-- HERO BANNER (Dapat diedit Admin melalui menu Identitas) -->
+        <!-- HERO BANNER -->
         <section id="heroBannerSection" class="relative overflow-hidden rounded-3xl bg-white dark:bg-[#1e1f20] border border-slate-200/80 dark:border-[#333537] shadow-sm p-5 sm:p-7 bg-cover bg-center transition-all">
             <div id="heroBannerBgOverlay" class="hidden absolute inset-0 bg-white/88 dark:bg-[#1e1f20]/88 backdrop-blur-[2px] pointer-events-none"></div>
             <div class="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-gradient-to-br from-blue-500/10 via-indigo-500/10 to-cyan-500/10 blur-2xl pointer-events-none"></div>
@@ -849,7 +858,7 @@
     <footer class="safe-footer border-t border-slate-200/80 dark:border-[#333537] bg-white/70 dark:bg-[#131314]/80 py-5 mt-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-500 dark:text-[#9aa0a6]">
             <div>
-                <span id="footerWebsiteName" class="font-bold text-slate-700 dark:text-[#e3e3e3]">AquaTrack</span> — <span id="footerClubName">Massa Utama Swimming Club</span>
+                <span id="footerWebsiteName" class="font-bold text-slate-700 dark:text-[#e3e3e3]">Massa Utama</span> — <span id="footerClubName">Massa Utama Swimming Sport</span>
             </div>
             <div>Kompatibel dengan Android, iPhone, iPad/Tablet, Laptop & Komputer</div>
         </div>
@@ -889,7 +898,7 @@
                     </button>
                 </form>
 
-                <!-- Login Cepat 1-Klik (Tampil setelah pernah login & bisa dihapus) -->
+                <!-- Login Cepat 1-Klik -->
                 <div id="quickLoginSection" class="hidden pt-3 border-t border-slate-200/80 dark:border-[#333537]">
                     <p class="text-[11px] font-semibold text-slate-500 dark:text-[#9aa0a6] mb-2">Login Cepat Akun Tersimpan (1-Klik):</p>
                     <div id="quickLoginAccountsList" class="space-y-2 max-h-40 overflow-y-auto"></div>
@@ -1034,7 +1043,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                     <input type="text" id="newStaffName" required placeholder="Nama Lengkap" class="px-3 py-2 rounded-xl bg-slate-50 dark:bg-[#282a2c] border border-slate-200 dark:border-[#3c4043] text-xs text-slate-900 dark:text-white">
                     <select id="newStaffRole" class="px-3 py-2 rounded-xl bg-slate-50 dark:bg-[#282a2c] border border-slate-200 dark:border-[#3c4043] text-xs text-slate-900 dark:text-white">
-                        <option value="operator">Operator Klub</option>
+                        <option value="operator">Operator / Pelatih</option>
                         <option value="admin">Admin Utama</option>
                     </select>
                     <input type="email" id="newStaffEmail" required placeholder="Email Login" class="px-3 py-2 rounded-xl bg-slate-50 dark:bg-[#282a2c] border border-slate-200 dark:border-[#3c4043] text-xs text-slate-900 dark:text-white">
@@ -1078,12 +1087,12 @@
                 <div class="p-3 rounded-2xl bg-slate-50 dark:bg-[#282a2c] border border-slate-200/80 dark:border-[#3c4043] space-y-2.5">
                     <div class="flex items-center justify-between gap-2">
                         <span class="text-xs font-bold text-slate-800 dark:text-white">Pengaturan ID / NIS Klub Otomatis</span>
-                        <span id="settingClubIdPreviewBadge" class="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold bg-blue-100 text-blue-700 dark:bg-blue-950 dark:text-blue-300">TN-2026-007</span>
+                        <span id="settingClubIdPreviewBadge" class="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold bg-blue-100 text-blue-700 dark:bg-blue-950 dark:text-blue-300">MU-2026-007</span>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
                         <div class="sm:col-span-2">
                             <label class="block text-[11px] font-semibold text-slate-700 dark:text-[#c4c7c5] mb-1">Format Awalan NIS</label>
-                            <input type="text" id="settingClubIdPrefix" oninput="updateClubIdSettingsPreview()" placeholder="Contoh: TN-2026-" class="w-full px-3 py-2 rounded-xl bg-white dark:bg-[#1e1f20] border border-slate-200 dark:border-[#3c4043] text-xs sm:text-sm font-mono text-slate-900 dark:text-white">
+                            <input type="text" id="settingClubIdPrefix" oninput="updateClubIdSettingsPreview()" placeholder="Contoh: MU-2026-" class="w-full px-3 py-2 rounded-xl bg-white dark:bg-[#1e1f20] border border-slate-200 dark:border-[#3c4043] text-xs sm:text-sm font-mono text-slate-900 dark:text-white">
                         </div>
                         <div>
                             <label class="block text-[11px] font-semibold text-slate-700 dark:text-[#c4c7c5] mb-1">No. Urut Berikutnya</label>
@@ -1144,7 +1153,7 @@
 
                 <div class="flex items-center justify-between pt-2">
                     <button type="button" onclick="resetSiteLogo()" class="text-xs font-semibold text-rose-600 dark:text-rose-400 hover:underline">Reset Logo Default</button>
-                    <div class="flex gap-2">
+                    <div class="flex justify-end gap-2">
                         <button type="button" onclick="closeSiteSettingsModal()" class="px-4 py-2 rounded-full text-xs font-semibold bg-slate-100 dark:bg-[#282a2c] text-slate-700 dark:text-[#c4c7c5]">Batal</button>
                         <button type="submit" class="px-5 py-2 rounded-full text-xs font-semibold bg-blue-600 text-white">Simpan</button>
                     </div>
@@ -1154,7 +1163,7 @@
     </div>
 
     <!-- ===================================================================== -->
-    <!-- MODAL 6: INPUT & EDIT DATA PESERTA + UPLOAD FOTO (ADMIN & OPERATOR)   -->
+    <!-- MODAL 6: INPUT & EDIT DATA PESERTA + UPLOAD FOTO (STAFF / PUBLIK ON)  -->
     <!-- ===================================================================== -->
     <div id="athleteModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/50 backdrop-blur-sm p-3.5 sm:p-4 overflow-y-auto">
         <div class="bg-white dark:bg-[#1e1f20] border border-slate-200 dark:border-[#333537] rounded-3xl shadow-2xl max-w-lg w-full p-5 sm:p-6 my-auto">
@@ -1192,7 +1201,7 @@
                     </div>
                     <div>
                         <label class="block text-xs font-semibold text-slate-700 dark:text-[#c4c7c5] mb-1">ID / NIS Klub <span class="text-[10px] font-normal text-blue-600 dark:text-blue-400">(Otomatis Sistem)</span></label>
-                        <input type="text" id="athleteClubIdInput" readonly required placeholder="TN-2026-007" class="w-full px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-[#202124] border border-slate-200 dark:border-[#3c4043] text-sm font-mono text-slate-700 dark:text-[#e3e3e3] cursor-not-allowed">
+                        <input type="text" id="athleteClubIdInput" readonly required placeholder="MU-2026-007" class="w-full px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-[#202124] border border-slate-200 dark:border-[#3c4043] text-sm font-mono text-slate-700 dark:text-[#e3e3e3] cursor-not-allowed">
                         <p class="text-[10px] text-slate-500 dark:text-[#9aa0a6] mt-0.5">Format &amp; nomor urut NIS diatur Admin pada menu Identitas Klub.</p>
                     </div>
                     <div>
@@ -1230,7 +1239,7 @@
                         </select>
                     </div>
                     <div class="sm:col-span-2">
-                        <label class="block text-xs font-semibold text-slate-700 dark:text-[#c4c7c5] mb-1">Nomor WhatsApp (Atlet / Orang Tua) <span class="text-[10px] font-normal text-slate-400">(Opsional • Hanya tampil untuk Admin &amp; Operator)</span></label>
+                        <label class="block text-xs font-semibold text-slate-700 dark:text-[#c4c7c5] mb-1">Nomor WhatsApp (Atlet / Orang Tua) <span class="text-[10px] font-normal text-slate-400">(Opsional • Hanya tampil untuk Admin &amp; Pelatih)</span></label>
                         <input type="tel" id="athleteWhatsappInput" placeholder="Contoh: 081234567890" class="w-full px-3.5 py-2 rounded-xl bg-slate-50 dark:bg-[#282a2c] border border-slate-200 dark:border-[#3c4043] text-sm text-slate-900 dark:text-white">
                     </div>
                 </div>
@@ -1244,7 +1253,7 @@
     </div>
 
     <!-- ===================================================================== -->
-    <!-- MODAL 7: CATAT WAKTU BARU (ADMIN & OPERATOR)                          -->
+    <!-- MODAL 7: CATAT WAKTU BARU (STAFF / PUBLIK ON)                         -->
     <!-- ===================================================================== -->
     <div id="addModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/50 backdrop-blur-sm p-3.5 sm:p-4 overflow-y-auto">
         <div class="bg-white dark:bg-[#1e1f20] border border-slate-200 dark:border-[#333537] rounded-3xl shadow-2xl max-w-lg w-full p-5 sm:p-6 my-auto max-h-[90vh] overflow-y-auto">
@@ -1734,7 +1743,7 @@
                 </button>
             </div>
 
-            <!-- Form Pendaftaran Peserta dari Klub Lain / Eksternal (Admin & Operator) -->
+            <!-- Form Pendaftaran Peserta dari Klub Lain / Eksternal -->
             <form id="externalParticipantForm" onsubmit="addExternalLombaParticipant(event)" class="hidden p-3.5 rounded-2xl bg-indigo-50/70 dark:bg-indigo-950/30 border border-indigo-200/80 dark:border-indigo-800/60 space-y-2.5">
                 <div class="flex items-center justify-between">
                     <span class="text-xs font-bold text-indigo-800 dark:text-indigo-300">+ Daftarkan Peserta dari Klub Lain (Klub Tamu)</span>
@@ -1822,7 +1831,7 @@
             <p id="customConfirmMessage" class="text-xs sm:text-sm text-slate-600 dark:text-[#c4c7c5]"></p>
             <div class="flex justify-end gap-2">
                 <button type="button" onclick="closeCustomConfirm(false)" class="px-4 py-2 rounded-full text-xs font-semibold bg-slate-100 dark:bg-[#282a2c] text-slate-700 dark:text-[#c4c7c5]">Batal</button>
-                <button type="button" onclick="closeCustomConfirm(true)" class="px-4 py-2 rounded-full text-xs font-semibold bg-rose-600 hover:bg-rose-700 text-white">Ya, Lanjutkan</button>
+                <button type="button" onclick="closeCustomConfirm(true)" class="px-4 py-2 rounded-full text-xs font-semibold bg-rose-600 hover:bg-rose-700 text-white">Ya, Hapus</button>
             </div>
         </div>
     </div>
@@ -1834,6 +1843,7 @@
         const DEFAULT_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwyVu0G9y85NMUUF3JdpcOObQDOLReBF7Xjnf-hSi2CYig991qQFo5nBpDLQiPdKYPw_g/exec';
 
         const STORAGE_KEYS = {
+            INITIALIZED: 'aquatrack_db_initialized_v2',
             SETTINGS: 'aquatrack_site_settings_v1',
             STAFF: 'aquatrack_staff_accounts_v1',
             HISTORY: 'aquatrack_login_history_v1',
@@ -1841,6 +1851,7 @@
             ATHLETES: 'aquatrack_athletes_v1',
             RECORDS: 'aquatrack_records_v1',
             COMPETITIONS: 'aquatrack_competitions_v1',
+            CERT_BATCH: 'aquatrack_cert_batch_v1',
             SESSION: 'aquatrack_active_session_v1',
             THEME: 'aquatrack_theme_v1',
             GDRIVE_CLIENT_ID: 'aquatrack_gdrive_client_id_v1',
@@ -1853,16 +1864,17 @@
         const ALL_DISTANCES = ['50M', '100M', '200M', '400M', '800M', '1500M'];
 
         const DEFAULT_SITE_SETTINGS = {
-            websiteName: 'AquaTrack',
-            clubName: 'Massa Utama Swimming Club',
+            websiteName: 'Massa Utama',
+            clubName: 'Massa Utama Swimming Sport',
             logoDataUrl: '',
-            clubIdPrefix: 'TN-2026-',
+            clubIdPrefix: 'MU-2026-',
             clubIdNextSeq: 7,
+            allowPublicInput: false,
             bannerBadge: 'Database Catatan Waktu & Rekor Atlet Terverifikasi',
             bannerTitlePrefix: 'Pantau',
             bannerTitleHighlight: 'Personal Best',
             bannerTitleSuffix: '& Perkembangan Perenang Klub',
-            bannerSubtitle: 'Sistem pencatatan waktu resmi untuk seluruh gaya dan jarak (50M hingga 1500M), lengkap dengan grafik progres atlet, kartu identitas QR, serta rekap kejuaraan.',
+            bannerSubtitle: 'Sistem pencatatan waktu resmi Massa Utama Swimming Sport untuk seluruh gaya dan jarak (50M hingga 1500M), lengkap dengan grafik progres atlet, kartu identitas QR, serta rekap kejuaraan.',
             bannerBgDataUrl: ''
         };
 
@@ -1888,7 +1900,7 @@
         const DEFAULT_ATHLETES = [
             {
                 id: 'ath_1',
-                clubId: 'TN-2026-001',
+                clubId: 'MU-2026-001',
                 name: 'Rafi Pratama',
                 gender: 'Putra',
                 birthDate: '2011-05-14',
@@ -1900,7 +1912,7 @@
             },
             {
                 id: 'ath_2',
-                clubId: 'TN-2026-002',
+                clubId: 'MU-2026-002',
                 name: 'Nadia Putri Azzahra',
                 gender: 'Putri',
                 birthDate: '2012-08-22',
@@ -1912,7 +1924,7 @@
             },
             {
                 id: 'ath_3',
-                clubId: 'TN-2026-003',
+                clubId: 'MU-2026-003',
                 name: 'Dimas Aditya',
                 gender: 'Putra',
                 birthDate: '2009-03-09',
@@ -1924,7 +1936,7 @@
             },
             {
                 id: 'ath_4',
-                clubId: 'TN-2026-004',
+                clubId: 'MU-2026-004',
                 name: 'Kayla Maharani',
                 gender: 'Putri',
                 birthDate: '2011-11-30',
@@ -1936,7 +1948,7 @@
             },
             {
                 id: 'ath_5',
-                clubId: 'TN-2026-005',
+                clubId: 'MU-2026-005',
                 name: 'Alvaro Wijaya',
                 gender: 'Putra',
                 birthDate: '2015-02-17',
@@ -1948,7 +1960,7 @@
             },
             {
                 id: 'ath_6',
-                clubId: 'TN-2026-006',
+                clubId: 'MU-2026-006',
                 name: 'Salsabila Khairunnisa',
                 gender: 'Putri',
                 birthDate: '2006-07-12',
@@ -2077,7 +2089,24 @@
         /* =========================================================================
            2. INISIALISASI & PENYIMPANAN DATA LOKAL / CLOUD
            ========================================================================= */
+        function canUseInputForms() {
+            return !!currentUser || !!siteSettings.allowPublicInput;
+        }
+
+        function readStoredArray(storageKey, defaultArray, isDbInitialized) {
+            const raw = localStorage.getItem(storageKey);
+            if (raw !== null) {
+                try {
+                    const parsed = JSON.parse(raw);
+                    if (Array.isArray(parsed)) return parsed;
+                } catch (e) {}
+            }
+            return isDbInitialized ? [] : [...defaultArray];
+        }
+
         function loadAllData() {
+            const isDbInitialized = localStorage.getItem(STORAGE_KEYS.INITIALIZED) === '1';
+
             try {
                 const savedSettings = JSON.parse(localStorage.getItem(STORAGE_KEYS.SETTINGS) || 'null');
                 if (savedSettings && typeof savedSettings === 'object') {
@@ -2087,47 +2116,15 @@
                 siteSettings = { ...DEFAULT_SITE_SETTINGS };
             }
 
-            try {
-                const savedStaff = JSON.parse(localStorage.getItem(STORAGE_KEYS.STAFF) || 'null');
-                staffAccounts = Array.isArray(savedStaff) && savedStaff.length ? savedStaff : [...DEFAULT_STAFF_ACCOUNTS];
-            } catch (e) {
-                staffAccounts = [...DEFAULT_STAFF_ACCOUNTS];
-            }
+            const loadedStaff = readStoredArray(STORAGE_KEYS.STAFF, DEFAULT_STAFF_ACCOUNTS, false);
+            staffAccounts = loadedStaff.length ? loadedStaff : [...DEFAULT_STAFF_ACCOUNTS];
 
-            try {
-                const savedHistory = JSON.parse(localStorage.getItem(STORAGE_KEYS.HISTORY) || 'null');
-                loginHistory = Array.isArray(savedHistory) ? savedHistory : [];
-            } catch (e) {
-                loginHistory = [];
-            }
-
-            try {
-                const savedQuickIds = JSON.parse(localStorage.getItem(STORAGE_KEYS.QUICK_LOGIN) || 'null');
-                quickLoginIds = Array.isArray(savedQuickIds) ? savedQuickIds : [];
-            } catch (e) {
-                quickLoginIds = [];
-            }
-
-            try {
-                const savedAthletes = JSON.parse(localStorage.getItem(STORAGE_KEYS.ATHLETES) || 'null');
-                athletes = Array.isArray(savedAthletes) && savedAthletes.length ? savedAthletes : [...DEFAULT_ATHLETES];
-            } catch (e) {
-                athletes = [...DEFAULT_ATHLETES];
-            }
-
-            try {
-                const savedRecords = JSON.parse(localStorage.getItem(STORAGE_KEYS.RECORDS) || 'null');
-                swimRecords = Array.isArray(savedRecords) && savedRecords.length ? savedRecords : [...DEFAULT_SWIM_RECORDS];
-            } catch (e) {
-                swimRecords = [...DEFAULT_SWIM_RECORDS];
-            }
-
-            try {
-                const savedComps = JSON.parse(localStorage.getItem(STORAGE_KEYS.COMPETITIONS) || 'null');
-                competitions = Array.isArray(savedComps) && savedComps.length ? savedComps : [...DEFAULT_COMPETITIONS];
-            } catch (e) {
-                competitions = [...DEFAULT_COMPETITIONS];
-            }
+            loginHistory = readStoredArray(STORAGE_KEYS.HISTORY, [], true);
+            quickLoginIds = readStoredArray(STORAGE_KEYS.QUICK_LOGIN, [], true);
+            athletes = readStoredArray(STORAGE_KEYS.ATHLETES, DEFAULT_ATHLETES, isDbInitialized);
+            swimRecords = readStoredArray(STORAGE_KEYS.RECORDS, DEFAULT_SWIM_RECORDS, isDbInitialized);
+            competitions = readStoredArray(STORAGE_KEYS.COMPETITIONS, DEFAULT_COMPETITIONS, isDbInitialized);
+            certBatchQueue = readStoredArray(STORAGE_KEYS.CERT_BATCH, [], true);
 
             try {
                 const savedSession = JSON.parse(localStorage.getItem(STORAGE_KEYS.SESSION) || 'null');
@@ -2141,10 +2138,15 @@
             } catch (e) {
                 currentUser = null;
             }
+
+            if (!isDbInitialized) {
+                saveAllData(true);
+            }
         }
 
         function saveAllData(skipCloudPush = false) {
             try {
+                localStorage.setItem(STORAGE_KEYS.INITIALIZED, '1');
                 localStorage.setItem(STORAGE_KEYS.SETTINGS, JSON.stringify(siteSettings));
                 localStorage.setItem(STORAGE_KEYS.STAFF, JSON.stringify(staffAccounts));
                 localStorage.setItem(STORAGE_KEYS.HISTORY, JSON.stringify(loginHistory));
@@ -2152,6 +2154,7 @@
                 localStorage.setItem(STORAGE_KEYS.ATHLETES, JSON.stringify(athletes));
                 localStorage.setItem(STORAGE_KEYS.RECORDS, JSON.stringify(swimRecords));
                 localStorage.setItem(STORAGE_KEYS.COMPETITIONS, JSON.stringify(competitions));
+                localStorage.setItem(STORAGE_KEYS.CERT_BATCH, JSON.stringify(certBatchQueue));
                 if (currentUser) {
                     localStorage.setItem(STORAGE_KEYS.SESSION, JSON.stringify(currentUser));
                 } else {
@@ -2227,7 +2230,7 @@
         }
 
         function generateNextClubId() {
-            const prefix = siteSettings.clubIdPrefix || 'TN-2026-';
+            const prefix = siteSettings.clubIdPrefix || 'MU-2026-';
             let seq = Math.max(1, parseInt(siteSettings.clubIdNextSeq, 10) || (athletes.length + 1));
             let candidate = `${prefix}${String(seq).padStart(3, '0')}`;
             while (athletes.some(a => String(a.clubId).toLowerCase() === candidate.toLowerCase())) {
@@ -2344,9 +2347,9 @@
         }
 
         function applySiteSettingsToUI() {
-            const wName = siteSettings.websiteName || 'AquaTrack';
-            const cName = siteSettings.clubName || 'Massa Utama Swimming Club';
-            document.getElementById('docTitle').textContent = `${wName} — ${cName}`;
+            const wName = siteSettings.websiteName || 'Massa Utama';
+            const cName = siteSettings.clubName || 'Massa Utama Swimming Sport';
+            document.getElementById('docTitle').textContent = cName;
             document.getElementById('headerWebsiteName').textContent = wName;
             document.getElementById('headerClubName').textContent = cName;
             document.getElementById('footerWebsiteName').textContent = wName;
@@ -2387,7 +2390,7 @@
         }
 
         /* =========================================================================
-           5. AUTENTIKASI STAFF, LOGIN CEPAT (BISA DIHAPUS), HISTORI & RESET OTP
+           5. AUTENTIKASI STAFF, TOGGLE INPUT PENGUNJUNG, HISTORI & RESET OTP
            ========================================================================= */
         function updateRoleBasedUI() {
             const isLoggedIn = !!currentUser;
@@ -2397,6 +2400,7 @@
             const roleCapsule = document.getElementById('userRoleCapsule');
             const adminSiteBtn = document.getElementById('adminSiteSettingsBtn');
             const adminStaffBtn = document.getElementById('adminManageStaffBtn');
+            const publicInputToggleBtn = document.getElementById('staffPublicInputToggleBtn');
             const gdriveBtn = document.getElementById('staffGoogleDriveBtn');
             const cloudBtn = document.getElementById('staffCloudSyncBtn');
             const navCertBtn = document.getElementById('navTabCertificates');
@@ -2406,6 +2410,8 @@
             const btnAddEvt = document.getElementById('btnAddEventRecord');
             const btnAddLomba = document.getElementById('btnAddNewLomba');
 
+            updatePublicInputToggleVisual();
+
             if (isLoggedIn) {
                 loginBtn.classList.add('hidden');
                 roleCapsule.classList.remove('hidden');
@@ -2413,12 +2419,32 @@
                 document.getElementById('capsuleRoleBadge').textContent = currentUser.role.toUpperCase();
                 document.getElementById('capsuleUserName').textContent = currentUser.name;
 
+                publicInputToggleBtn.classList.remove('hidden');
+                publicInputToggleBtn.classList.add('inline-flex');
                 gdriveBtn.classList.remove('hidden');
                 gdriveBtn.classList.add('inline-flex');
                 cloudBtn.classList.remove('hidden');
                 cloudBtn.classList.add('inline-flex');
                 navCertBtn.classList.remove('hidden');
+            } else {
+                loginBtn.classList.remove('hidden');
+                roleCapsule.classList.add('hidden');
+                roleCapsule.classList.remove('inline-flex');
 
+                publicInputToggleBtn.classList.add('hidden');
+                publicInputToggleBtn.classList.remove('inline-flex');
+                gdriveBtn.classList.add('hidden');
+                gdriveBtn.classList.remove('inline-flex');
+                cloudBtn.classList.add('hidden');
+                cloudBtn.classList.remove('inline-flex');
+                navCertBtn.classList.add('hidden');
+
+                if (activeTab === 'certificates') {
+                    switchTab('best-time');
+                }
+            }
+
+            if (canUseInputForms()) {
                 [btnAddTime, btnAddAth, btnAddEvt, btnAddLomba].forEach(b => {
                     if (b) {
                         b.classList.remove('hidden');
@@ -2426,26 +2452,12 @@
                     }
                 });
             } else {
-                loginBtn.classList.remove('hidden');
-                roleCapsule.classList.add('hidden');
-                roleCapsule.classList.remove('inline-flex');
-
-                gdriveBtn.classList.add('hidden');
-                gdriveBtn.classList.remove('inline-flex');
-                cloudBtn.classList.add('hidden');
-                cloudBtn.classList.remove('inline-flex');
-                navCertBtn.classList.add('hidden');
-
                 [btnAddTime, btnAddAth, btnAddEvt, btnAddLomba].forEach(b => {
                     if (b) {
                         b.classList.add('hidden');
                         b.classList.remove('inline-flex');
                     }
                 });
-
-                if (activeTab === 'certificates') {
-                    switchTab('best-time');
-                }
             }
 
             if (isAdmin) {
@@ -2461,6 +2473,42 @@
             }
 
             refreshAllViews();
+        }
+
+        function updatePublicInputToggleVisual() {
+            const isOn = !!siteSettings.allowPublicInput;
+            const btn = document.getElementById('staffPublicInputToggleBtn');
+            const sw = document.getElementById('publicInputToggleSwitch');
+            const knob = document.getElementById('publicInputToggleKnob');
+            const statusText = document.getElementById('publicInputToggleStatusText');
+            if (!btn || !sw || !knob || !statusText) return;
+
+            if (isOn) {
+                btn.className = 'inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-full text-xs font-semibold bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950/70 dark:hover:bg-emerald-900/70 text-emerald-800 dark:text-emerald-200 border border-emerald-300 dark:border-emerald-700 transition';
+                sw.className = 'relative inline-flex h-4 w-7 shrink-0 items-center rounded-full bg-emerald-600 transition-colors';
+                knob.className = 'inline-block h-3 w-3 translate-x-3.5 rounded-full bg-white shadow transition-transform';
+                statusText.className = 'text-[10px] font-extrabold text-emerald-700 dark:text-emerald-300';
+                statusText.textContent = 'ON';
+            } else {
+                btn.className = 'inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-full text-xs font-semibold bg-slate-100 hover:bg-slate-200/80 dark:bg-[#282a2c] dark:hover:bg-[#333537] text-slate-700 dark:text-[#e3e3e3] border border-slate-200/80 dark:border-[#3c4043] transition';
+                sw.className = 'relative inline-flex h-4 w-7 shrink-0 items-center rounded-full bg-slate-300 dark:bg-slate-600 transition-colors';
+                knob.className = 'inline-block h-3 w-3 translate-x-0.5 rounded-full bg-white shadow transition-transform';
+                statusText.className = 'text-[10px] font-extrabold text-slate-500 dark:text-[#9aa0a6]';
+                statusText.textContent = 'OFF';
+            }
+        }
+
+        function togglePublicInputMode() {
+            if (!currentUser) return;
+            siteSettings.allowPublicInput = !siteSettings.allowPublicInput;
+            saveAllData();
+            updateRoleBasedUI();
+            showToast(
+                siteSettings.allowPublicInput
+                    ? 'Form input mode pengunjung DIAKTIFKAN (Pengunjung dapat menginput data).'
+                    : 'Form input mode pengunjung DINONAKTIFKAN (Kembali khusus Admin & Pelatih).',
+                siteSettings.allowPublicInput ? 'success' : 'info'
+            );
         }
 
         function showAuthLoadingOverlay(title, subtitle, callback) {
@@ -2651,9 +2699,9 @@
             const ok = await showCustomConfirm('Bersihkan Histori Login', 'Hapus seluruh riwayat akses masuk staff?');
             if (!ok) return;
             loginHistory = [];
-            saveAllData(true);
+            saveAllData();
             renderLoginHistoryList();
-            showToast('Histori login dibersihkan.', 'info');
+            showToast('Histori login dihapus secara permanen.', 'info');
         }
 
         /* Reset Password OTP & Link */
@@ -2883,13 +2931,13 @@
 
         async function deleteStaffAccount(id) {
             if (!currentUser || currentUser.role !== 'admin') return;
-            const ok = await showCustomConfirm('Hapus Akun Staff', 'Yakin ingin menghapus akun staff ini?');
+            const ok = await showCustomConfirm('Hapus Akun Staff', 'Yakin ingin menghapus akun staff ini secara permanen?');
             if (!ok) return;
             staffAccounts = staffAccounts.filter(s => s.id !== id);
             quickLoginIds = quickLoginIds.filter(qId => qId !== id);
             saveAllData();
             renderStaffAccountsList();
-            showToast('Akun staff dihapus.', 'info');
+            showToast('Akun staff dihapus secara permanen.', 'info');
         }
 
         /* Pengaturan Identitas & Banner (Admin) */
@@ -2897,7 +2945,7 @@
             if (!currentUser || currentUser.role !== 'admin') return;
             document.getElementById('settingWebsiteName').value = siteSettings.websiteName;
             document.getElementById('settingClubName').value = siteSettings.clubName;
-            document.getElementById('settingClubIdPrefix').value = siteSettings.clubIdPrefix || 'TN-2026-';
+            document.getElementById('settingClubIdPrefix').value = siteSettings.clubIdPrefix || 'MU-2026-';
             document.getElementById('settingClubIdNextSeq').value = siteSettings.clubIdNextSeq || 7;
             updateClubIdSettingsPreview();
 
@@ -2931,7 +2979,7 @@
         }
 
         function updateClubIdSettingsPreview() {
-            const prefix = document.getElementById('settingClubIdPrefix').value || 'TN-2026-';
+            const prefix = document.getElementById('settingClubIdPrefix').value || 'MU-2026-';
             const seq = Math.max(1, parseInt(document.getElementById('settingClubIdNextSeq').value, 10) || 1);
             document.getElementById('settingClubIdPreviewBadge').textContent = `${prefix}${String(seq).padStart(3, '0')}`;
         }
@@ -2987,9 +3035,9 @@
         function handleSaveSiteSettings(event) {
             event.preventDefault();
             if (!currentUser || currentUser.role !== 'admin') return;
-            siteSettings.websiteName = document.getElementById('settingWebsiteName').value.trim() || 'AquaTrack';
-            siteSettings.clubName = document.getElementById('settingClubName').value.trim() || 'Massa Utama Swimming Club';
-            siteSettings.clubIdPrefix = document.getElementById('settingClubIdPrefix').value || 'TN-2026-';
+            siteSettings.websiteName = document.getElementById('settingWebsiteName').value.trim() || 'Massa Utama';
+            siteSettings.clubName = document.getElementById('settingClubName').value.trim() || 'Massa Utama Swimming Sport';
+            siteSettings.clubIdPrefix = document.getElementById('settingClubIdPrefix').value || 'MU-2026-';
             siteSettings.clubIdNextSeq = Math.max(1, parseInt(document.getElementById('settingClubIdNextSeq').value, 10) || 1);
 
             siteSettings.bannerBadge = document.getElementById('settingBannerBadge').value.trim();
@@ -3009,7 +3057,7 @@
            ========================================================================= */
         function switchTab(tabName) {
             if (tabName === 'certificates' && !currentUser) {
-                showToast('Login sebagai Admin atau Operator untuk membuka menu Sertifikat.', 'info');
+                showToast('Login sebagai Admin atau Pelatih untuk membuka menu Sertifikat.', 'info');
                 openLoginModal('login');
                 return;
             }
@@ -3089,7 +3137,6 @@
             const strokeFilter = document.getElementById('filterBestStroke').value;
             const distFilter = document.getElementById('filterBestDistance').value;
 
-            // Ambil waktu tercepat per atlet + gaya + jarak
             const pbMap = new Map();
             swimRecords.forEach(r => {
                 if (gFilter !== 'ALL' && r.gender !== gFilter) return;
@@ -3193,7 +3240,12 @@
                             <div class="font-bold text-slate-800 dark:text-white truncate">${escapeHtml(r.athleteName)} <span class="font-normal text-slate-500">(${escapeHtml(r.ageGroup)})</span></div>
                             <div class="text-[11px] text-slate-500 truncate">${escapeHtml(r.eventName)} • ${escapeHtml(formatDateIndo(r.date))}</div>
                         </div>
-                        ${currentUser ? `<button type="button" onclick="openEditRecordModal('${escapeHtml(r.id)}')" class="px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-amber-50 text-amber-700 dark:bg-amber-950/60 dark:text-amber-300 shrink-0">Edit</button>` : ''}
+                        ${currentUser ? `
+                            <div class="flex items-center gap-1 shrink-0">
+                                <button type="button" onclick="openEditRecordModal('${escapeHtml(r.id)}')" class="px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-amber-50 hover:bg-amber-100 text-amber-700 dark:bg-amber-950/60 dark:text-amber-300">Edit</button>
+                                <button type="button" onclick="deleteSwimRecord('${escapeHtml(r.id)}')" class="px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-rose-50 hover:bg-rose-100 text-rose-600 dark:bg-rose-950/60 dark:text-rose-300">Hapus</button>
+                            </div>
+                        ` : ''}
                     </div>
                 </div>
             `).join('');
@@ -3204,7 +3256,6 @@
             const eventSelect = document.getElementById('filterEventNameSelect');
             if (!tbody) return;
 
-            // Update pilihan filter kejuaraan
             if (eventSelect) {
                 const currentVal = eventSelect.value;
                 const uniqueEventNames = Array.from(new Set(swimRecords.map(r => r.eventName).filter(Boolean))).sort();
@@ -3218,7 +3269,6 @@
             const distFilter = document.getElementById('filterEventDistance').value;
             const strokeFilter = document.getElementById('filterEventStroke').value;
 
-            // Hitung PB per atlet + gaya + jarak untuk penanda Best Time
             const pbLookup = new Map();
             swimRecords.forEach(r => {
                 const k = `${r.athleteId || r.athleteName}|${r.stroke}|${r.distance}`;
@@ -3307,9 +3357,7 @@
                     : `<div class="w-14 h-16 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white font-extrabold text-base flex items-center justify-center shrink-0">${escapeHtml(getInitials(a.name))}</div>`;
 
                 const staffExtras = currentUser
-                    ? `
-                        <div class="text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold mt-0.5">WA: ${escapeHtml(a.whatsapp || '-')}</div>
-                    `
+                    ? `<div class="text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold mt-0.5">WA: ${escapeHtml(a.whatsapp || '-')}</div>`
                     : '';
 
                 const staffActionBtns = currentUser
@@ -3348,7 +3396,10 @@
         }
 
         function openAddAthleteModal() {
-            if (!currentUser) return;
+            if (!canUseInputForms()) {
+                showToast('Akses input peserta baru sedang dikunci. Login sebagai Staff atau aktifkan mode pengunjung.', 'info');
+                return;
+            }
             document.getElementById('athleteModalTitle').textContent = 'Input Data Peserta Baru';
             document.getElementById('athleteEditId').value = '';
             document.getElementById('athleteNameInput').value = '';
@@ -3434,9 +3485,10 @@
 
         function handleAthleteFormSubmit(event) {
             event.preventDefault();
-            if (!currentUser) return;
-
             const editId = document.getElementById('athleteEditId').value.trim();
+            if (editId && !currentUser) return;
+            if (!editId && !canUseInputForms()) return;
+
             const name = document.getElementById('athleteNameInput').value.trim();
             const clubId = document.getElementById('athleteClubIdInput').value.trim();
             const gender = document.getElementById('athleteGenderInput').value;
@@ -3459,7 +3511,6 @@
                         whatsapp,
                         photoDataUrl: uploadedAthletePhotoData
                     };
-                    // Sinkronkan nama & kategori pada catatan waktu atlet tersebut
                     swimRecords.forEach(r => {
                         if (r.athleteId === editId) {
                             r.athleteName = name;
@@ -3495,20 +3546,30 @@
             if (!currentUser) return;
             const a = athletes.find(item => item.id === id);
             if (!a) return;
-            const ok = await showCustomConfirm('Hapus Data Peserta', `Hapus peserta "${a.name}" beserta seluruh catatan waktunya?`);
+            const ok = await showCustomConfirm('Hapus Data Peserta', `Hapus peserta "${a.name}" beserta seluruh catatan waktunya secara permanen?`);
             if (!ok) return;
             athletes = athletes.filter(item => item.id !== id);
-            swimRecords = swimRecords.filter(r => r.athleteId !== id);
+            swimRecords = swimRecords.filter(r => r.athleteId !== id && String(r.athleteName).toLowerCase() !== String(a.name).toLowerCase());
+            competitions.forEach(comp => {
+                if (Array.isArray(comp.participantIds)) {
+                    comp.participantIds = comp.participantIds.filter(pid => pid !== id);
+                }
+            });
             saveAllData();
+            if (activeDetailAthleteId === id) closeAthleteDetailModal();
             refreshAllViews();
-            showToast('Peserta berhasil dihapus.', 'info');
+            handleBannerQuickSearch();
+            showToast('Peserta dan seluruh riwayatnya berhasil dihapus permanen.', 'info');
         }
 
         /* =========================================================================
            9. CATAT & EDIT WAKTU RENANG
            ========================================================================= */
         function openAddModal() {
-            if (!currentUser) return;
+            if (!canUseInputForms()) {
+                showToast('Akses catat waktu baru sedang dikunci. Login sebagai Staff atau aktifkan mode pengunjung.', 'info');
+                return;
+            }
             document.getElementById('recordSelectedAthleteId').value = '';
             document.getElementById('modalAthleteQuickSearch').value = '';
             document.getElementById('recordAthleteName').value = '';
@@ -3569,7 +3630,7 @@
 
         function handleFormSubmit(event) {
             event.preventDefault();
-            if (!currentUser) return;
+            if (!canUseInputForms()) return;
 
             let athleteId = document.getElementById('recordSelectedAthleteId').value.trim();
             const athleteName = document.getElementById('recordAthleteName').value.trim();
@@ -3593,7 +3654,6 @@
             const date = document.getElementById('recordDate').value;
             const eventTime = document.getElementById('recordEventTime').value || '09:00';
 
-            // Jika atlet belum ada di daftar peserta, daftarkan otomatis
             if (!athleteId) {
                 const existing = athletes.find(a => a.name.toLowerCase() === athleteName.toLowerCase());
                 if (existing) {
@@ -3694,12 +3754,17 @@
 
         async function deleteSwimRecord(id) {
             if (!currentUser) return;
-            const ok = await showCustomConfirm('Hapus Catatan Waktu', 'Yakin ingin menghapus catatan waktu ini?');
+            const target = swimRecords.find(r => r.id === id);
+            if (!target) return;
+            const ok = await showCustomConfirm(
+                'Hapus Catatan Waktu',
+                `Hapus catatan waktu ${target.athleteName} (${target.distance} ${target.stroke} — ${target.timeFormatted}) secara permanen?`
+            );
             if (!ok) return;
             swimRecords = swimRecords.filter(r => r.id !== id);
             saveAllData();
             refreshAllViews();
-            showToast('Catatan waktu dihapus.', 'info');
+            showToast('Catatan waktu berhasil dihapus secara permanen.', 'info');
         }
 
         /* =========================================================================
@@ -3741,7 +3806,6 @@
                 eventSelect.innerHTML = `<option value="">Belum ada data grafik</option>`;
             }
 
-            // Ringkasan PB
             const pbMap = new Map();
             athRecords.forEach(r => {
                 const k = `${r.distance}|${r.stroke}`;
@@ -4179,7 +4243,7 @@
 
         function downloadBackupJsonForDrive() {
             const payload = {
-                app: 'AquaTrack',
+                app: 'MassaUtamaSwimmingSport',
                 exportedAt: new Date().toISOString(),
                 siteSettings,
                 athletes,
@@ -4190,7 +4254,7 @@
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `AquaTrack_Backup_${new Date().toISOString().slice(0, 10)}.json`;
+            a.download = `MassaUtama_Backup_${new Date().toISOString().slice(0, 10)}.json`;
             a.click();
             URL.revokeObjectURL(url);
 
@@ -4290,7 +4354,7 @@
             }
             try {
                 const payload = JSON.stringify({ siteSettings, athletes, swimRecords, competitions }, null, 2);
-                const metadata = { name: `AquaTrack_Cloud_${new Date().toISOString().slice(0, 10)}.json`, mimeType: 'application/json' };
+                const metadata = { name: `MassaUtama_Cloud_${new Date().toISOString().slice(0, 10)}.json`, mimeType: 'application/json' };
                 const form = new FormData();
                 form.append('metadata', new Blob([JSON.stringify(metadata)], { type: 'application/json' }));
                 form.append('file', new Blob([payload], { type: 'application/json' }));
@@ -4313,14 +4377,14 @@
                 return;
             }
             try {
-                const res = await fetch("https://www.googleapis.com/drive/v3/files?q=name contains 'AquaTrack_' and trashed=false&fields=files(id,name,modifiedTime)", {
+                const res = await fetch("https://www.googleapis.com/drive/v3/files?q=(name contains 'MassaUtama_' or name contains 'AquaTrack_') and trashed=false&fields=files(id,name,modifiedTime)", {
                     headers: { Authorization: `Bearer ${gdriveAccessToken}` }
                 });
                 const json = await res.json();
                 const listEl = document.getElementById('gdriveCloudFilesList');
                 listEl.classList.remove('hidden');
                 if (!json.files || !json.files.length) {
-                    listEl.innerHTML = `<p class="text-xs text-slate-400">Belum ada file backup AquaTrack di Google Drive.</p>`;
+                    listEl.innerHTML = `<p class="text-xs text-slate-400">Belum ada file backup di Google Drive.</p>`;
                     return;
                 }
                 listEl.innerHTML = json.files.map(f => `
@@ -4423,7 +4487,10 @@
         }
 
         function openAddLombaModal() {
-            if (!currentUser) return;
+            if (!canUseInputForms()) {
+                showToast('Akses tambah jadwal lomba sedang dikunci. Login sebagai Staff atau aktifkan mode pengunjung.', 'info');
+                return;
+            }
             document.getElementById('lombaModalTitle').textContent = 'Tambah Jadwal Lomba';
             document.getElementById('lombaEditId').value = '';
             document.getElementById('lombaTitleInput').value = '';
@@ -4554,7 +4621,6 @@
                 return;
             }
 
-            // Tampilkan filter instan dari direktori kolam renang Indonesia sambil mengetik
             const qLower = rawVal.toLowerCase();
             const localMatches = INDONESIAN_AQUATIC_VENUES.filter(v =>
                 v.name.toLowerCase().includes(qLower) ||
@@ -4605,7 +4671,6 @@
                 return;
             }
 
-            // Jika pengguna menempelkan tautan Google Maps langsung
             if (/^https?:\/\//i.test(rawQuery)) {
                 const pastedUrl = rawQuery;
                 let extractedName = '';
@@ -4636,21 +4701,18 @@
                 return;
             }
 
-            // Gabungkan hasil dari direktori kolam renang Indonesia + pencarian wilayah Indonesia
             const qLower = rawQuery.toLowerCase();
             const localMatches = INDONESIAN_AQUATIC_VENUES.filter(v =>
                 v.name.toLowerCase().includes(qLower) ||
                 v.address.toLowerCase().includes(qLower)
             ).slice(0, 4);
 
-            // Jika user menekan tombol "Cari Google Maps" secara eksplisit, langsung tampilkan peta & tutup dropdown
             if (!isAutoDebounce) {
                 resBox.classList.add('hidden');
                 const queryWithIndonesia = /indonesia/i.test(rawQuery) ? rawQuery : `${rawQuery}, Indonesia`;
                 updateGoogleMapEmbedPreview(queryWithIndonesia);
             }
 
-            // Cari lokasi nyata di seluruh Indonesia (Nominatim Indonesia Geocoding) untuk autocomplete
             if (rawQuery.length >= 3) {
                 try {
                     if (lombaVenueAbortController) lombaVenueAbortController.abort();
@@ -4686,9 +4748,7 @@
                             renderVenueCandidatesDropdown(combined.slice(0, 7), 'Pilih Lokasi di Indonesia:');
                         }
                     }
-                } catch (err) {
-                    // Abaikan jika request dibatalkan saat mengetik cepat
-                }
+                } catch (err) {}
             }
         }
 
@@ -4700,19 +4760,6 @@
             document.getElementById('clearLombaVenueBtn').classList.remove('hidden');
             document.getElementById('lombaVenueLat').value = v.lat || '';
             document.getElementById('lombaVenueLng').value = v.lng || '';
-            document.getElementById('lombaVenueSearchResults').classList.add('hidden');
-            const gmapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(fullLabel)}`;
-            updateGoogleMapEmbedPreview(fullLabel, gmapsUrl);
-        }
-
-        function selectIndonesianVenueByIndex(idx) {
-            const v = INDONESIAN_AQUATIC_VENUES[idx];
-            if (!v) return;
-            const fullLabel = `${v.name} — ${v.address}`;
-            document.getElementById('lombaVenueInput').value = fullLabel;
-            document.getElementById('clearLombaVenueBtn').classList.remove('hidden');
-            document.getElementById('lombaVenueLat').value = v.lat;
-            document.getElementById('lombaVenueLng').value = v.lng;
             document.getElementById('lombaVenueSearchResults').classList.add('hidden');
             const gmapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(fullLabel)}`;
             updateGoogleMapEmbedPreview(fullLabel, gmapsUrl);
@@ -4734,9 +4781,10 @@
 
         function handleLombaFormSubmit(event) {
             event.preventDefault();
-            if (!currentUser) return;
-
             const editId = document.getElementById('lombaEditId').value.trim();
+            if (editId && !currentUser) return;
+            if (!editId && !canUseInputForms()) return;
+
             const title = document.getElementById('lombaTitleInput').value.trim();
             const level = document.getElementById('lombaLevelInput').value;
             const status = document.getElementById('lombaStatusInput').value;
@@ -4793,12 +4841,12 @@
 
         async function deleteLomba(id) {
             if (!currentUser) return;
-            const ok = await showCustomConfirm('Hapus Jadwal Lomba', 'Yakin ingin menghapus jadwal lomba ini?');
+            const ok = await showCustomConfirm('Hapus Jadwal Lomba', 'Yakin ingin menghapus jadwal lomba ini secara permanen?');
             if (!ok) return;
             competitions = competitions.filter(c => c.id !== id);
             saveAllData();
             renderLombaList();
-            showToast('Jadwal lomba dihapus.', 'info');
+            showToast('Jadwal lomba dihapus secara permanen.', 'info');
         }
 
         /* Peserta Lomba (Internal & Klub Lain) */
@@ -4811,7 +4859,7 @@
             document.getElementById('lombaPartModalSubtitle').textContent = `${formatDateIndo(comp.date)} • ${comp.venue}`;
 
             const extForm = document.getElementById('externalParticipantForm');
-            if (currentUser) {
+            if (canUseInputForms()) {
                 extForm.classList.remove('hidden');
             } else {
                 extForm.classList.add('hidden');
@@ -4838,7 +4886,7 @@
             const extList = comp.externalParticipants || [];
 
             let html = `<div class="space-y-2"><div class="text-xs font-bold text-slate-800 dark:text-white">Atlet Internal Klub (${selectedSet.size} Terdaftar)</div>`;
-            if (currentUser) {
+            if (canUseInputForms()) {
                 html += `<div class="grid grid-cols-1 sm:grid-cols-2 gap-2">` + athletes.map(a => `
                     <label class="p-2.5 rounded-xl bg-slate-50 dark:bg-[#282a2c] border border-slate-200 dark:border-[#3c4043] flex items-center gap-2 text-xs cursor-pointer">
                         <input type="checkbox" onchange="toggleInternalLombaParticipant('${escapeHtml(a.id)}')" ${selectedSet.has(a.id) ? 'checked' : ''} class="rounded text-blue-600">
@@ -4874,11 +4922,16 @@
         }
 
         function toggleInternalLombaParticipant(athleteId) {
-            if (!currentUser) return;
+            if (!canUseInputForms()) return;
             const comp = competitions.find(c => c.id === activeLombaPartCompId);
             if (!comp) return;
             if (!Array.isArray(comp.participantIds)) comp.participantIds = [];
             if (comp.participantIds.includes(athleteId)) {
+                if (!currentUser) {
+                    showToast('Hanya Admin atau Pelatih yang dapat menghapus peserta terdaftar.', 'info');
+                    renderLombaParticipantsList();
+                    return;
+                }
                 comp.participantIds = comp.participantIds.filter(id => id !== athleteId);
             } else {
                 comp.participantIds.push(athleteId);
@@ -4890,7 +4943,7 @@
 
         function addExternalLombaParticipant(event) {
             event.preventDefault();
-            if (!currentUser) return;
+            if (!canUseInputForms()) return;
             const comp = competitions.find(c => c.id === activeLombaPartCompId);
             if (!comp) return;
             if (!Array.isArray(comp.externalParticipants)) comp.externalParticipants = [];
@@ -4919,6 +4972,7 @@
             saveAllData();
             renderLombaParticipantsList();
             renderLombaList();
+            showToast('Peserta klub tamu dihapus permanen.', 'info');
         }
 
         /* =========================================================================
@@ -5044,7 +5098,7 @@
             const logoHtml = showLogo
                 ? (logoUrl
                     ? `<img src="${logoUrl}" alt="Logo" style="height:48px;width:48px;object-fit:contain;border-radius:10px;margin:0 auto 6px auto;">`
-                    : `<div style="width:44px;height:44px;border-radius:12px;background:#1e3a8a;color:#fff;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center;margin:0 auto 6px auto;">AT</div>`)
+                    : `<div style="width:44px;height:44px;border-radius:12px;background:#1e3a8a;color:#fff;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center;margin:0 auto 6px auto;">MU</div>`)
                 : '';
 
             const timeBadge = data.time
@@ -5107,7 +5161,6 @@
                 `;
             }
 
-            // Default: Template 1 Emas Klasik
             return `
                 <div style="position:relative;width:100%;height:100%;background:#fffdf7;border:12px double #b45309;box-sizing:border-box;padding:24px 36px;display:flex;flex-direction:column;justify-content:space-between;text-align:center;font-family:Inter,sans-serif;overflow:hidden;">
                     ${bgLayer}
@@ -5167,6 +5220,7 @@
         function addCurrentFormToCertBatch() {
             const item = { id: 'cb_' + Date.now() + Math.random(), ...getCurrentCertFormData() };
             certBatchQueue.push(item);
+            saveAllData(true);
             renderCertBatchUI();
             showToast(`${item.name} ditambahkan ke antrean cetak batch.`, 'success');
         }
@@ -5177,6 +5231,7 @@
                     certBatchQueue.push({ id: 'cb_' + Date.now() + Math.random(), ...getCurrentCertFormData(a.name) });
                 }
             });
+            saveAllData(true);
             renderCertBatchUI();
             showToast('Seluruh peserta terdaftar dimasukkan ke antrean batch.', 'success');
         }
@@ -5192,18 +5247,23 @@
                 certBatchQueue.push({ id: 'cb_' + Date.now() + Math.random(), ...getCurrentCertFormData(name) });
             });
             document.getElementById('certBatchBulkNamesInput').value = '';
+            saveAllData(true);
             renderCertBatchUI();
             showToast(`${lines.length} nama ditambahkan ke antrean batch.`, 'success');
         }
 
         function removeCertBatchItem(id) {
             certBatchQueue = certBatchQueue.filter(item => item.id !== id);
+            saveAllData(true);
             renderCertBatchUI();
+            showToast('Peserta dihapus dari antrean batch.', 'info');
         }
 
         function clearCertBatchQueue() {
             certBatchQueue = [];
+            saveAllData(true);
             renderCertBatchUI();
+            showToast('Antrean cetak batch dikosongkan.', 'info');
         }
 
         function renderCertBatchUI() {
@@ -5245,6 +5305,7 @@
             } else {
                 certBatchQueue.push({ id: 'cb_' + Date.now() + Math.random(), ...getCurrentCertFormData(name) });
             }
+            saveAllData(true);
             renderCertBatchUI();
         }
 
@@ -5377,12 +5438,13 @@
                     if (json.hasData && json.data) {
                         if (json.data.siteSettings) siteSettings = { ...siteSettings, ...json.data.siteSettings };
                         if (Array.isArray(json.data.staffAccounts) && json.data.staffAccounts.length) staffAccounts = json.data.staffAccounts;
-                        if (Array.isArray(json.data.athletes) && json.data.athletes.length) athletes = json.data.athletes;
-                        if (Array.isArray(json.data.swimRecords) && json.data.swimRecords.length) swimRecords = json.data.swimRecords;
-                        if (Array.isArray(json.data.competitions) && json.data.competitions.length) competitions = json.data.competitions;
+                        if (Array.isArray(json.data.loginHistory)) loginHistory = json.data.loginHistory;
+                        if (Array.isArray(json.data.athletes)) athletes = json.data.athletes;
+                        if (Array.isArray(json.data.swimRecords)) swimRecords = json.data.swimRecords;
+                        if (Array.isArray(json.data.competitions)) competitions = json.data.competitions;
                         saveAllData(true);
                         applySiteSettingsToUI();
-                        refreshAllViews();
+                        updateRoleBasedUI();
                         if (!silent) showToast('Data terbaru berhasil ditarik dari Google Sheets!', 'success');
                     } else if (!silent) {
                         showToast('Terhubung ke Cloud, database Sheets masih kosong.', 'info');
@@ -5440,7 +5502,6 @@
         });
 
         window.addEventListener('DOMContentLoaded', () => {
-            // Cek parameter ?api=... pada URL jika dibagikan
             try {
                 const params = new URLSearchParams(window.location.search);
                 const apiParam = params.get('api');
